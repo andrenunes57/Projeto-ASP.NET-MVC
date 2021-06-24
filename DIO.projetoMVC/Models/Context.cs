@@ -13,11 +13,7 @@ namespace DIO.projetoMVC.Models
         public DbSet<Produto> Produtos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appsettings.json")
-            .Build();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-T16M5FS\SQLEXPRESS;Initial Catalog=DIOProjetoMVC;Integrated Security=True");
         }
 
         public virtual void SetModified(object entity)
